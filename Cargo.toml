@@ -252,8 +252,8 @@ version = '1.0.4'
 
 [dependencies.forum]
 default_features = false
-git = 'https://github.com/mnaamani/substrate-forum-module'
+git = 'https://github.com/juniuszhou/substrate-forum-module'
 package = 'substrate-forum-module'
-branch = 'use-polkadot-master-substrate-version'
+branch = 'development'
 # Before releasing Rome - finalize and tag release new forum and update this
 # tag = 'v1.0.0'

@@ -514,27 +514,9 @@ impl members::Trait for Runtime {
  */
 
 /// Shim registry which will proxy ForumUserRegistry behaviour to the members module
-pub struct ShimMembershipRegistry {}
-
-impl forum::ForumUserRegistry<AccountId> for ShimMembershipRegistry {
-    fn get_forum_user(id: &AccountId) -> Option<forum::ForumUser<AccountId>> {
-        if members::Module::<Runtime>::is_member_account(id) {
-            // For now we don't retreive the members profile since it is not used for anything,
-            // but in the future we may need it to read out more
-            // information possibly required to construct a
-            // ForumUser.
-
-            // Now convert member profile to a forum user
-            Some(forum::ForumUser { id: id.clone() })
-        } else {
-            None
-        }
-    }
-}
 
 impl forum::Trait for Runtime {
     type Event = Event;
-    type MembershipRegistry = ShimMembershipRegistry;
 }
 
 impl migration::Trait for Runtime {
