@@ -695,28 +695,14 @@ impl members::Trait for Runtime {
  * run convention should be.
  */
 
-/// Shim registry which will proxy ForumUserRegistry behaviour to the members module
-pub struct ShimMembershipRegistry {}
-
-impl forum::ForumUserRegistry<AccountId> for ShimMembershipRegistry {
-    fn get_forum_user(id: &AccountId) -> Option<forum::ForumUser<AccountId>> {
-        if members::Module::<Runtime>::is_member_account(id) {
-            // For now we don't retreive the members profile since it is not used for anything,
-            // but in the future we may need it to read out more
-            // information possibly required to construct a
-            // ForumUser.
-
-            // Now convert member profile to a forum user
-            Some(forum::ForumUser { id: id.clone() })
-        } else {
-            None
-        }
-    }
-}
-
 impl forum::Trait for Runtime {
     type Event = Event;
-    type MembershipRegistry = ShimMembershipRegistry;
+    type ForumUserId = u64;
+    type ModeratorId = u64;
+    type CategoryId = u64;
+    type ThreadId = u64;
+    type LabelId = u64;
+    type PostId = u64;
 }
 
 impl migration::Trait for Runtime {
@@ -785,6 +771,13 @@ construct_runtime!(
         ContentWorkingGroup: content_wg::{Module, Call, Storage, Event<T>, Config<T>},
 	}
 );
+
+pub type ForumUserId = <Runtime as forum::Trait>::ForumUserId;
+pub type ModeratorId = <Runtime as forum::Trait>::ModeratorId;
+pub type CategoryId = <Runtime as forum::Trait>::CategoryId;
+pub type ThreadId = <Runtime as forum::Trait>::ThreadId;
+pub type LabelId = <Runtime as forum::Trait>::LabelId;
+pub type PostId = <Runtime as forum::Trait>::PostId;
 
 /// The address format for describing accounts.
 pub type Address = <Indices as StaticLookup>::Source;

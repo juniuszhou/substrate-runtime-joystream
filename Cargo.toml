@@ -258,9 +258,9 @@ version = '1.0.4'
 
 [dependencies.forum]
 default_features = false
-git = 'https://github.com/joystream/substrate-forum-module'
+git = 'https://github.com/juniuszhou/substrate-forum-module'
 package = 'substrate-forum-module'
-rev = '4bdeadaadfcca1fd6e822c520f429d4beacc4c8a'
+branch = 'development'
 
 [dependencies.minting]
 default_features = false
