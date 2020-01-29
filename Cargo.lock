@@ -1001,7 +1001,7 @@ dependencies = [
  "substrate-authority-discovery-primitives 2.0.0 (git+https://github.com/paritytech/substrate.git?rev=0e3001a1ad6fa3d1ba7da7342a8d0d3b3facb2f3)",
  "substrate-client 2.0.0 (git+https://github.com/paritytech/substrate.git?rev=0e3001a1ad6fa3d1ba7da7342a8d0d3b3facb2f3)",
  "substrate-consensus-babe-primitives 2.0.0 (git+https://github.com/paritytech/substrate.git?rev=0e3001a1ad6fa3d1ba7da7342a8d0d3b3facb2f3)",
- "substrate-forum-module 1.1.0 (git+https://github.com/juniuszhou/substrate-forum-module?branch=development)",
+ "substrate-forum-module 1.1.0 (git+https://github.com/juniuszhou/substrate-forum-module?rev=f4bd5f02b1818b87fddbef0ed8efbf7440f80cb6)",
  "substrate-hiring-module 1.0.0 (git+https://github.com/Joystream/substrate-hiring-module?rev=30ac830aecb2e61fb943a8c4327bcf52c289e383)",
  "substrate-offchain-primitives 2.0.0 (git+https://github.com/paritytech/substrate.git?rev=0e3001a1ad6fa3d1ba7da7342a8d0d3b3facb2f3)",
  "substrate-primitives 2.0.0 (git+https://github.com/paritytech/substrate.git?rev=0e3001a1ad6fa3d1ba7da7342a8d0d3b3facb2f3)",
@@ -3180,7 +3180,7 @@ dependencies = [
 [[package]]
 name = "substrate-forum-module"
 version = "1.1.0"
-source = "git+https://github.com/juniuszhou/substrate-forum-module?branch=development#e8838bc4af562b03a50d393cd0c3f1cf248fd875"
+source = "git+https://github.com/juniuszhou/substrate-forum-module?rev=f4bd5f02b1818b87fddbef0ed8efbf7440f80cb6#f4bd5f02b1818b87fddbef0ed8efbf7440f80cb6"
 dependencies = [
  "hex-literal 0.1.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "parity-scale-codec 1.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -4509,7 +4509,7 @@ dependencies = [
 "checksum substrate-executor 2.0.0 (git+https://github.com/paritytech/substrate.git?rev=0e3001a1ad6fa3d1ba7da7342a8d0d3b3facb2f3)" = "<none>"
 "checksum substrate-externalities 2.0.0 (git+https://github.com/paritytech/substrate.git?rev=0e3001a1ad6fa3d1ba7da7342a8d0d3b3facb2f3)" = "<none>"
 "checksum substrate-finality-grandpa-primitives 2.0.0 (git+https://github.com/paritytech/substrate.git?rev=0e3001a1ad6fa3d1ba7da7342a8d0d3b3facb2f3)" = "<none>"
-"checksum substrate-forum-module 1.1.0 (git+https://github.com/juniuszhou/substrate-forum-module?branch=development)" = "<none>"
+"checksum substrate-forum-module 1.1.0 (git+https://github.com/juniuszhou/substrate-forum-module?rev=f4bd5f02b1818b87fddbef0ed8efbf7440f80cb6)" = "<none>"
 "checksum substrate-header-metadata 2.0.0 (git+https://github.com/paritytech/substrate.git?rev=0e3001a1ad6fa3d1ba7da7342a8d0d3b3facb2f3)" = "<none>"
 "checksum substrate-hiring-module 1.0.0 (git+https://github.com/Joystream/substrate-hiring-module?rev=30ac830aecb2e61fb943a8c4327bcf52c289e383)" = "<none>"
 "checksum substrate-inherents 2.0.0 (git+https://github.com/paritytech/substrate.git?rev=0e3001a1ad6fa3d1ba7da7342a8d0d3b3facb2f3)" = "<none>"

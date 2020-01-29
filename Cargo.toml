@@ -260,7 +260,8 @@ version = '1.0.4'
 default_features = false
 git = 'https://github.com/juniuszhou/substrate-forum-module'
 package = 'substrate-forum-module'
-branch = 'development'
+rev = 'f4bd5f02b1818b87fddbef0ed8efbf7440f80cb6'
+# branch = 'development'
 
 [dependencies.minting]
 default_features = false
