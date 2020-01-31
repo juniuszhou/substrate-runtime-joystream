@@ -29,7 +29,7 @@ use versioned_store_permissions;
 
 /// DIRTY IMPORT BECAUSE
 /// InputValidationLengthConstraint has not been factored out yet!!!
-use forum::InputValidationLengthConstraint;
+use forum_1::InputValidationLengthConstraint;
 
 /// Module configuration trait for this Substrate module.
 pub trait Trait:

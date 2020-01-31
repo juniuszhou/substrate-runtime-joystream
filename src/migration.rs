@@ -1,4 +1,4 @@
-use crate::forum;
+use crate::forum_1;
 use crate::storage;
 use crate::VERSION;
 use runtime_primitives::print;
@@ -36,7 +36,7 @@ pub trait Trait:
     system::Trait
     + storage::data_directory::Trait
     + storage::data_object_storage_registry::Trait
-    + forum::Trait
+    + forum_1::Trait
     + sudo::Trait
 {
     type Event: From<Event<Self>> + Into<<Self as system::Trait>::Event>;

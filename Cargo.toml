@@ -41,7 +41,8 @@ std = [
     'transaction-payment/std',
     'randomness-collective-flip/std',
     'system-rpc-runtime-api/std',
-    'forum/std',
+    'forum_1/std',
+    'forum_2/std',
     'minting/std',
     'recurringrewards/std',
     'stake/std',
@@ -256,7 +257,14 @@ rev = '0e3001a1ad6fa3d1ba7da7342a8d0d3b3facb2f3'
 package = 'substrate-wasm-builder-runner'
 version = '1.0.4'
 
-[dependencies.forum]
+
+[dependencies.forum_1]
+default_features = false
+git = 'https://github.com/joystream/substrate-forum-module'
+package = 'substrate-forum-module'
+rev = '4bdeadaadfcca1fd6e822c520f429d4beacc4c8a'
+
+[dependencies.forum_2]
 default_features = false
 git = 'https://github.com/juniuszhou/substrate-forum-module'
 package = 'substrate-forum-module'

@@ -403,7 +403,8 @@ mod memo;
 pub use versioned_store;
 use versioned_store_permissions;
 mod traits;
-pub use forum;
+pub use forum_1;
+pub use forum_2;
 use membership::members;
 
 mod content_working_group;
@@ -695,7 +696,31 @@ impl members::Trait for Runtime {
  * run convention should be.
  */
 
-impl forum::Trait for Runtime {
+/// Shim registry which will proxy ForumUserRegistry behaviour to the members module
+pub struct ShimMembershipRegistry {}
+
+impl forum_1::ForumUserRegistry<AccountId> for ShimMembershipRegistry {
+    fn get_forum_user(id: &AccountId) -> Option<forum_1::ForumUser<AccountId>> {
+        if members::Module::<Runtime>::is_member_account(id) {
+            // For now we don't retreive the members profile since it is not used for anything,
+            // but in the future we may need it to read out more
+            // information possibly required to construct a
+            // ForumUser.
+
+            // Now convert member profile to a forum user
+            Some(forum_1::ForumUser { id: id.clone() })
+        } else {
+            None
+        }
+    }
+}
+
+impl forum_1::Trait for Runtime {
+    type Event = Event;
+    type MembershipRegistry = ShimMembershipRegistry;
+}
+
+impl forum_2::Trait for Runtime {
     type Event = Event;
     type ForumUserId = u64;
     type ModeratorId = u64;
@@ -755,7 +780,8 @@ construct_runtime!(
         Council: council::{Module, Call, Storage, Event<T>, Config<T>},
         Memo: memo::{Module, Call, Storage, Event<T>},
         Members: members::{Module, Call, Storage, Event<T>, Config<T>},
-        Forum: forum::{Module, Call, Storage, Event<T>, Config<T>},
+        ForumOne: forum_1::{Module, Call, Storage, Event<T>, Config<T>},
+        ForumTwo: forum_2::{Module, Call, Storage, Event<T>, Config<T>},
         Migration: migration::{Module, Call, Storage, Event<T>},
         Actors: actors::{Module, Call, Storage, Event<T>, Config},
         DataObjectTypeRegistry: data_object_type_registry::{Module, Call, Storage, Event<T>, Config<T>},
@@ -772,12 +798,12 @@ construct_runtime!(
 	}
 );
 
-pub type ForumUserId = <Runtime as forum::Trait>::ForumUserId;
-pub type ModeratorId = <Runtime as forum::Trait>::ModeratorId;
-pub type CategoryId = <Runtime as forum::Trait>::CategoryId;
-pub type ThreadId = <Runtime as forum::Trait>::ThreadId;
-pub type LabelId = <Runtime as forum::Trait>::LabelId;
-pub type PostId = <Runtime as forum::Trait>::PostId;
+pub type ForumUserId = <Runtime as forum_2::Trait>::ForumUserId;
+pub type ModeratorId = <Runtime as forum_2::Trait>::ModeratorId;
+pub type CategoryId = <Runtime as forum_2::Trait>::CategoryId;
+pub type ThreadId = <Runtime as forum_2::Trait>::ThreadId;
+pub type LabelId = <Runtime as forum_2::Trait>::LabelId;
+pub type PostId = <Runtime as forum_2::Trait>::PostId;
 
 /// The address format for describing accounts.
 pub type Address = <Indices as StaticLookup>::Source;
